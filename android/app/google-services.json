@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "884788596487",
+    "project_id": "sarmaaya-revamp",
+    "storage_bucket": "sarmaaya-revamp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884788596487:android:8a2cfaa8c34b38b3b9ffa2",
+        "android_client_info": {
+          "package_name": "com.sarmaaya_revamp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884788596487-j041vdtnr7q9482d4ldkjvpu6v1g9bi5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sarmaaya_revamp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "884788596487-cajtrvd3f7l7ghc2o19mv757uikuebtt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ7eGmVFzlOILDLZRmbqWdm6dEnHa1Wd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884788596487-cajtrvd3f7l7ghc2o19mv757uikuebtt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "884788596487-3c98u8elcve4j7b0or4d3nvvkni9b4r5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.sarmaaya-revamp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
