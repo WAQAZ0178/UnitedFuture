@@ -1,10 +1,8 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-// import Auth from "./auth";
-// import App from "./app";
-import Auth from "./authNav";
-import App from "./appNav";
+import Auth from "./unitedFutureApp";
+import App from "./unitedFutureAuth";
 const AppStack = createStackNavigator();
 const AppNavigator = () => {
   return (

@@ -1,12 +1,12 @@
 import React from "react";
-import { View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import styles from "./styles";
 import SemiBoldText from "../../../typography/semiBoldText";
 import RegularText from "../../../typography/regularText";
 import { colors } from "../../../global/utilities";
-const HomeCard = ({ id, description }) => {
+const HomeCard = ({ id, description,DeleteItem }) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={DeleteItem} style={styles.container}>
       <View style={styles.nameShareContainer}>
         <RegularText
           label={description}
@@ -22,9 +22,8 @@ const HomeCard = ({ id, description }) => {
         color={colors.PrimaryBlue950}
         numberOfLines={1}
         maxWidth={80}
-        // style={styles.otherText}
       />
-    </View>
+    </TouchableOpacity>
   );
 };
 

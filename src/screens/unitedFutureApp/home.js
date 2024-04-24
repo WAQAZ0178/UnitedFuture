@@ -8,18 +8,18 @@ import {
   ActivityIndicator,
 } from "react-native";
 import styles from "./home.styles";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { HomeCard } from "../../components/feed";
-import { API } from "../../services/apiServices";
 import { colors } from "../../global/utilities";
-import { ACTIONS } from "../../store/actions";
 import useFetchData from "../../hooks/useFetchData";
 import { deleteKey } from "../../services/storageServices";
 import { AppButton } from "../../components/general";
+import { Toast } from "../../services/toast";
 const Home = (props) => {
   const { navigation } = props;
   const reduxList = useSelector((state) => state?.state?.todoReducer?.todolist);
   const { loading, list, getList } = useFetchData();
+  const [dataList, setdataList] = useState(list|[])
   const [btnLoading, setBtnLoading] = useState(false);
   useEffect(() => {
     getList();
@@ -30,7 +30,14 @@ const Home = (props) => {
   };
 
   const renderItem = (item) => {
-    return <HomeCard id={item?.id} description={item?.todo} />;
+    return 
+    (
+    <HomeCard
+      DeleteItem={removeItem(item)}
+      id={item?.id} description={item?.todo}
+    />
+    )
+    
   };
 
   const logout = async () => {
@@ -39,6 +46,15 @@ const Home = (props) => {
     navigation.replace("Auth", { screen: "Login" });
     setBtnLoading(false);
   };
+
+  const removeItem=(todo)=>{
+    let copy=[...dataList]
+    copy=copy.filter((item)=>{
+   item.id!=todo?.id
+    })
+    setdataList(copy)
+    Toast.showToast("Todo Deleted");
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -55,7 +71,7 @@ const Home = (props) => {
           </View>
         ) : (
           <FlatList
-            data={list}
+            data={dataList}
             renderItem={({ item }) => renderItem(item)}
             bounces={true}
             contentContainerStyle={{ flex: 1 }}

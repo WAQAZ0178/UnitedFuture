@@ -15,12 +15,11 @@ const persistConfig = {
   storage: AsyncStorage,
   timeout: 0,
 
-  // version: 1, // <-- Add a version number here
+
 };
 const rootReducer = combineReducers({
   state: appReducer,
 });
-// const persistedReducer = persistReducer(persistConfig, appReducer);
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 const composeEnhancers = window.REDUX_DEVTOOLS_EXTENSION_COMPOSE || compose;
 export const store = createStore(

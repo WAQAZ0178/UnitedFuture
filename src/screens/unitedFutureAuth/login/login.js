@@ -1,8 +1,7 @@
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useFormik } from "formik";
 import { Switch } from "react-native-paper";
-import React, { Dispatch, useEffect, useState } from "react";
 import { SafeAreaView, TouchableOpacity, View } from "react-native";
 import {
   AppButton,
@@ -15,20 +14,12 @@ import { FingerPrintButton } from "../../../components/itoms";
 import { colors } from "../../../global/utilities";
 import {
   deleteKey,
-  getKey,
-  getObject,
   setKey,
   storeObject,
 } from "../../../services/storageServices";
 import { Toast } from "../../../services/toast";
-import { loginValidationSchema } from "../../../services/validationServices";
-import { AuthStackParamList } from "../../../types";
 import RegularText from "../../../typography/regularText";
 import styles from "./styles";
-import { useDispatch } from "react-redux";
-
-import { ACTIONS } from "../../../store/actions/user";
-import { Usertypes as types } from "../../../store/types";
 import { useAppContext } from "../../../context/appContext";
 
 const Login = () => {
@@ -50,7 +41,6 @@ const Login = () => {
       validateOnBlur: true,
       validateOnChange: true,
       enableReinitialize: true,
-
       onSubmit: () => onSubmit(),
     });
 
@@ -71,9 +61,6 @@ const Login = () => {
       return values.email === user.email && values.password === user?.password;
     });
 
-    console.log("====================================");
-    console.log(user);
-    console.log("====================================");
     if (user) {
       await storeObject("userInfo", user);
       navigation.navigate("App");
