@@ -7,54 +7,42 @@ import { colors } from "../../../global/utilities";
 const styles = StyleSheet.create({
   container: {
     justifyContent: "space-between",
-    alignItems: "flex-start",
+    alignItems: "center",
     alignSelf: "center",
+    flexDirection: "row",
     width: responsiveWidth(95),
-    marginTop: responsiveHeight(0.1),
     marginBottom: responsiveHeight(1.5),
-    borderBottomWidth: 1,
-    borderBottomColor: colors.neutral200,
-    paddingVertical: responsiveHeight(2),
+    paddingVertical: responsiveHeight(4),
     paddingHorizontal: responsiveHeight(1),
     backgroundColor: colors.white,
     borderRadius: responsiveWidth(1),
     shadowColor: "#000",
+    margin: responsiveWidth(0.5),
     shadowOffset: {
       width: 0,
       height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-
     elevation: 5,
   },
 
-  nameShareContainer: {
-    width: responsiveWidth(90),
+  detailsContainer: {
+    width: responsiveWidth(75),
   },
-
-  dailyPLContainer: {
-    width: responsiveWidth(25),
-    justifyContent: "space-between",
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  otherText: {
-    textAlign: "center",
-    width: responsiveWidth(40),
-  },
-  dailyPLInnerContainer: {
-    alignItems: "flex-end",
+  stateText: {
+    paddingTop: responsiveHeight(1),
   },
 
   arrowButton: {
-    width: responsiveWidth(6.5),
-    height: responsiveWidth(6.5),
+    alignItems: "center",
+    justifyContent: "center",
+    width: responsiveWidth(7),
+    height: responsiveWidth(7),
     borderRadius: responsiveWidth(3.5),
-    backgroundColor: colors.primaryBlueBrand,
+    backgroundColor: colors.cloud,
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: responsiveWidth(2),
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

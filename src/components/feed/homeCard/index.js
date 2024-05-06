@@ -1,28 +1,39 @@
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import styles from "./styles";
-import SemiBoldText from "../../../typography/semiBoldText";
-import RegularText from "../../../typography/regularText";
 import { colors } from "../../../global/utilities";
-const HomeCard = ({ id, description,DeleteItem }) => {
+import { Icon } from "react-native-elements";
+import { responsiveFontSize } from "react-native-responsive-dimensions";
+import BoldText from "../../../typography/boldText";
+import SemiBoldText from "../../../typography/semiBoldText";
+const HomeCard = ({ state, UniName, onPressDetails }) => {
   return (
-    <TouchableOpacity onPress={DeleteItem} style={styles.container}>
-      <View style={styles.nameShareContainer}>
-        <RegularText
-          label={description}
+    <TouchableOpacity onPress={onPressDetails} style={styles.container}>
+      <View style={styles.detailsContainer}>
+        <BoldText
+          label={UniName}
           fontSize={2.2}
-          color={colors.PrimaryBlue950}
+          color={colors.blue950}
           numberOfLines={1}
-          maxWidth={90}
+          maxWidth={75}
+        />
+        <SemiBoldText
+          label={state}
+          fontSize={2}
+          color={colors.gray700}
+          numberOfLines={1}
+          maxWidth={80}
+          style={styles.stateText}
         />
       </View>
-      <SemiBoldText
-        label={`id : ${id}`}
-        fontSize={2}
-        color={colors.PrimaryBlue950}
-        numberOfLines={1}
-        maxWidth={80}
-      />
+      <View style={styles.arrowButton}>
+        <Icon
+          type="material-icon"
+          name="arrow-forward-ios"
+          color={colors.gray700}
+          size={responsiveFontSize(2)}
+        />
+      </View>
     </TouchableOpacity>
   );
 };

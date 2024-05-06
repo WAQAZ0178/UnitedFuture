@@ -1,25 +1,41 @@
 import { useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { setTodoList } from "../store/actions/todo";
+import { useDispatch, useSelector } from "react-redux";
+import { setUniList } from "../store/actions/uniList";
+import { URL } from "../global/constants";
 const useFetchData = () => {
   const [loading, setLoading] = useState(false);
   const [list, setList] = useState([]);
   const dispatch = useDispatch();
+  const uniList = useSelector((state) => state?.state?.reducer?.uniList);
+
   const getList = async () => {
     setLoading(true);
+
     try {
-      let res = await axios.get("https://dummyjson.com/todos");
-      if (res.data?.todos) {
-        setList(res.data.todos);
-        dispatch(setTodoList(res.data.todos));
+      const response = await axios.get(URL.baseURL, { timeout: 5000 });
+
+      // Check if the response has data and use it
+      if (response?.data) {
+        setList(response.data);
+        dispatch(setUniList(response.data));
       } else {
-        setList([]);
+        handleNoData();
       }
     } catch (error) {
-      console.error("Error fetching data:", error);
+      handleNoData();
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
+  };
+
+  // Helper function to handle no data scenarios
+  const handleNoData = () => {
+    if (uniList?.length > 0) {
+      setList(uniList);
+    } else {
+      setList([]);
+    }
   };
 
   return { loading, list, getList };

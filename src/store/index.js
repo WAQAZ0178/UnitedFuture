@@ -14,8 +14,6 @@ const persistConfig = {
   key: "root",
   storage: AsyncStorage,
   timeout: 0,
-
-
 };
 const rootReducer = combineReducers({
   state: appReducer,

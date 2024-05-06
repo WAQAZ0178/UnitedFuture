@@ -1,5 +1,5 @@
-import types from '../types';
-const setProfileInfo = payload => {
+import types from "../types";
+const setProfileInfo = (payload) => {
   return (dispatch, getState) => {
     dispatch({
       type: types.SET_PROFILE_INFO,
